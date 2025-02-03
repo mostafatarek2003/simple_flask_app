@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building..."
+		script{
+			 echo "Building..."
+			 def customImage = docker.build("flaskapp:0.0.1")
+		}
             }
         }
         
