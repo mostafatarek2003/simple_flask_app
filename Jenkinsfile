@@ -5,8 +5,12 @@ pipeline {
         stage('Build') {
             steps {
 		script{
-			 echo "Building..."
-			 def customImage = docker.build("flaskapp:0.0.1")
+			 echo "Building"
+
+			docker.withRegistry('https://index.docker.io/v1', 'dockerhub-creds-mostafa') {
+                         def customImage = docker.build("mostafatarek2003/flaskapp:0.0.1")
+
+       			 customImage.push()
 		}
             }
         }
@@ -23,4 +27,5 @@ pipeline {
             }
         }
     }
+}
 }
