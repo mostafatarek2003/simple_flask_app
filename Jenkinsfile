@@ -19,7 +19,7 @@ pipeline {
             agent {
                 
                     docker{
-                        image 'ubuntu:latest'"
+                        image 'ubuntu:latest'
              
                 }
             }
