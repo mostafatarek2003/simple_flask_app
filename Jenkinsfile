@@ -9,7 +9,7 @@ pipeline {
 
                     
                     docker.withRegistry('https://index.docker.io/v1', 'dockerhub-creds-mostafa') {
-                        def customImage = docker.build("mostafatarek2003/flaskapp:0.0.1")
+                        def customImage = docker.build("mostafatarek2003/flaskapp:0.0.2")
                         customImage.push()
                     }
                 }
