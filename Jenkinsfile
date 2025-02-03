@@ -16,18 +16,20 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
-                script {
-                    docker.image('ubuntu:latest').inside {
-                        echo "Testing inside Ubuntu container.."
-                    }
+            agent {
+                
+                    docker{
+                        image 'ubuntu:latest'"
+             
                 }
             }
+             steps{echo 'testing'}
+
         }
 
         stage('Deploy') {
-            options {
-                input message: 'Do you want to run this container?'
+            input {
+                 message 'Do you want to run this container?'
             }
             steps {
                 script {
